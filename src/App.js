@@ -1,6 +1,7 @@
 import React from 'react'
 import { useAsync } from "react-async"
 import axios from 'axios'
+import PostTable from './components/PostTable'
 
 const loadPosts = async () => {
   const response = await axios.get('https://guarded-mountain-76807.herokuapp.com/api/posts')
@@ -17,8 +18,7 @@ const App = () => {
     
     return (
       <div>
-        <strong>Posts:</strong>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
+        <PostTable posts={data}></PostTable>
       </div>
     )
   return null
